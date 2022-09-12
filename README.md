@@ -234,7 +234,6 @@ Open the terminal in the directory where ngspice is stored and type the followin
 ```
 $ ngspice sky130_inv.spice 
 ```
-![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/custom%20inverter%20cell%20(copy).png)
 
 
 Now plot the graphs for the designed inverter model using the following command:
