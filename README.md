@@ -375,6 +375,7 @@ add_lefs -src $lefs
 ```
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane0.png)
 
+
 ## Synthesis Reports
 
 Details of all the gates used:
@@ -390,23 +391,23 @@ Clock skew and Worst Slack:
 ```
 % run_floorplan
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_floorplan.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane1.png)
 
 ## Floorplan Reports
 
 Die Area:
 
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/die_area.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/floor_planning_1.png)
 
 Core Area:
 
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/core_area.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/floorplan%20area.png)
 
 # Placement
 ```
 % run_placement
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_placement.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane2.png)
 
 The sky130_vsdinv should also reflect in your netlist after placement:
 
