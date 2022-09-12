@@ -409,26 +409,23 @@ Core Area:
 ```
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane2.png)
 
-The sky130_vsdinv should also reflect in your netlist after placement:
-
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/vsd_inv_in_topmodule.png)
-
 # Clock Tree Synthesis
 ```
 % run_cts
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_cts.png)
 
 # Routing
 ```
 % run_routing
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_routing.png)
-
-The sky130_vsdinv should also reflect in your netlist after routing:
-
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/top_resized.png)
-
+### NOTE
+We can also run the whole flow at once instead of step by step process by giving the following command in openlane container<br>
+```
+$ ./flow.tcl -design iiitb_freqdiv
+```
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/flow1.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/flow2.png)
+All the steps will be automated and all the files will be generated.<br>
 
 # Contibutors
 * Mayank Kabra, Student, IIIT Bangalore
