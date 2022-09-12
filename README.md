@@ -427,6 +427,17 @@ $ ./flow.tcl -design iiitb_freqdiv
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/flow2.png)
 All the steps will be automated and all the files will be generated.<br>
 
+
+we can open the mag file and view the layout after the whole process by the following command, you can follow the path as per the image.<br>
+
+```
+$ magic -T /home/nandu/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech iiitb_freqdiv.mag &
+```
+<br>
+
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/terminal_layout.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/layout1.png)
+
 # Contibutors
 * Mayank Kabra, Student, IIIT Bangalore
 * Asmita Zjigyasu, Student, IIIT Bangalore
