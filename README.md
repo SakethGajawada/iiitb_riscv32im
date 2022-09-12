@@ -229,12 +229,40 @@ To extract Spice netlist, Type the following commands in tcl window.
 "cthresh 0 rthresh 0" is used to extract parasitic capacitances from the cell.
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/cthresh_rthresh.png)
 
+Copy the below code into sky130_inv.spice.
+### Spice Netlist:
+```
+* SPICE3 file created from sky130_inv.ext - technology: sky130A
+
+.option scale=0.01u
+.include ./libs/pshort.lib
+.include ./libs/nshort.lib
+
+
+M1001 Y A VGND VGND nshort_model.0 ad=1435 pd=152 as=1365 ps=148 w=35 l=23
+M1000 Y A VPWR VPWR pshort_model.0 ad=1443 pd=152 as=1517 ps=156 w=37 l=23
+VDD VPWR 0 3.3V
+VSS VGND 0 0V
+Va A VGND PULSE(0V 3.3V 0 0.1ns 0.1ns 2ns 4ns)
+C0 Y VPWR 0.08fF
+C1 A Y 0.02fF
+C2 A VPWR 0.08fF
+C3 Y VGND 0.18fF
+C4 VPWR VGND 0.74fF
+
+
+.tran 1n 20n
+.control
+run
+.endc
+.end
+```
 
 Open the terminal in the directory where ngspice is stored and type the following command to open the ngspice console:
 ```
 $ ngspice sky130_inv.spice 
 ```
-
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/ngspice.png)
 
 Now plot the graphs for the designed inverter model using the following command:
 ```
