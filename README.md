@@ -143,8 +143,8 @@ $ sudo docker run hello-world (If the docker is successfully installed u will ge
 ```
 $ git clone https://github.com/The-OpenROAD-Project/OpenLane.git
 $ cd OpenLane/
-$ make
-$ make test
+$ sudo make
+$ sudo make test
 ```
 
 ## Magic Installation
@@ -189,8 +189,8 @@ After all the softwares are installed, run the following commands for installing
 $ git clone https://github.com/RTimothyEdwards/magic
 $ cd magic
 $ ./configure
-$ make
-$ make install
+$ sudo make
+$ sudo make install
 ```
 
 ## Klayout Installation
@@ -298,16 +298,45 @@ Cell fall delay = (4.0 - 3.983) = 17ps
 The layout is generated using OpenLane. To run a custom design on OpenLane, navigate to the openlane folder and run the following commands:
 ```
 $ cd designs
-$ mkdir iiitb_riscv32im5
-$ cd iiitb_riscv32im5
+$ mkdir iiitb_riscv32im
+$ cd iiitb_riscv32im
 $ mkdir src
 $ touch config.json
 $ cd src
-$ touch iiitb_riscv32im5.v
+$ touch iiitb_riscv32im.v
 ```
 
+Final src folder of the iiitb_riscv32im design should look like this:
 
-The iiitb_riscv32im5.v file should contain the verilog RTL code you have used and got the post synthesis simulation for.
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/src_folder.png)
+
+The iiitb_riscv32im.v file should contain the verilog RTL code you have used and got the post synthesis simulation for.
+
+The contents of the config.json are as follows:
+```
+{
+    "DESIGN_NAME": "top",
+    "VERILOG_FILES": "dir::src/iiitb_riscv.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
+    "CLOCK_PERIOD": 10,
+    "PL_TARGET_DENSITY": 0.4,
+    "FP_SIZING" : "relative",
+    "pdk::sky130*": {
+        "FP_CORE_UTIL": 30,
+        "scl::sky130_fd_sc_hd": {
+            "FP_CORE_UTIL": 20
+        }
+    },
+    
+    "LIB_SYNTH": "dir::src/sky130_fd_sc_hd__typical.lib",
+    "LIB_FASTEST": "dir::src/sky130_fd_sc_hd__fast.lib",
+    "LIB_SLOWEST": "dir::src/sky130_fd_sc_hd__slow.lib",
+    "LIB_TYPICAL": "dir::src/sky130_fd_sc_hd__typical.lib",  
+    "TEST_EXTERNAL_GLOB": "dir::../iiitb_riscv32im/src/*"
+}
+```
 
 Copy "sky130_fd_sc_hd__fast.lib", "sky130_fd_sc_hd__slow.lib", "sky130_fd_sc_hd__typical.lib" and "sky130_vsdinv.lef" files to src folder in your design.
 
@@ -315,14 +344,14 @@ Navigate to the openlane folder in terminal and give the following command :
 ```
 $ make mount (or use sudo as prefix)
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/layout1.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane-3.png)
 
 
 After entering the openlane container give the following command:
 ```
 $ ./flow.tcl -interactive
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/layout2.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane-2.png)
 
 
 This command will take you into the tcl console. In the tcl console type the following commands:
@@ -330,7 +359,7 @@ This command will take you into the tcl console. In the tcl console type the fol
 % package require openlane 0.9
 % prep -design iiitb_riscv32im5
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/layout3.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane-1.png)
 
 
 The following commands are to merge external the lef files to the merged.nom.lef. In our case sky130_vsdiat is getting merged to the lef file
@@ -340,21 +369,65 @@ set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 ```
 
-# Placement and Routing
+# Synthesis
+```
+% run_synthesis
+```
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane0.png)
 
-## Config.json file
+## Synthesis Reports
 
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/img3.jpeg)
+Details of all the gates used:
 
-## Running the synthesis, floorplan, placement commands
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/img1.jpeg)
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/img2.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/synthesis_stats.png)
 
-## Setup and Hold Slack after synthesis
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/img4.jpeg)
+Clock skew and Worst Slack:
 
-## Floorplan Reports - Die Area
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/img5.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/clock_skew.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/worst%20slack.png)
+
+# Floorplan
+```
+% run_floorplan
+```
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_floorplan.png)
+
+## Floorplan Reports
+
+Die Area:
+
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/die_area.png)
+
+Core Area:
+
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/core_area.png)
+
+# Placement
+```
+% run_placement
+```
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_placement.png)
+
+The sky130_vsdinv should also reflect in your netlist after placement:
+
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/vsd_inv_in_topmodule.png)
+
+# Clock Tree Synthesis
+```
+% run_cts
+```
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_cts.png)
+
+# Routing
+```
+% run_routing
+```
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/run_routing.png)
+
+The sky130_vsdinv should also reflect in your netlist after routing:
+
+![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/top_resized.png)
+
 
 # Contibutors
 * Mayank Kabra, Student, IIIT Bangalore
