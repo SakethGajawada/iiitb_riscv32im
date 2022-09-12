@@ -102,8 +102,8 @@ script yosys_run.sh
 ```
 6. We can view the statistics of the netlist by typing "stat".
 ## Screenshots of the statistics of our design iiitb_riscv32im5
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/stat_1.png)
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/stat_2.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/yosys_stats1.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/yosys_stats2.png)
 
 7. To test the post synthesis design execute the following commands
 ```
@@ -112,7 +112,7 @@ iverilog -DFUNCTIONAL -DUNIT_DELAY=#1 synth_riscv.v iiitb_riscv_tb.v primitives.
 gtkwave test.vcd
 ```
 ## Post synthesis simulation
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/Post_synthesis_simulation.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/post_simulation_gtkwave.png)
 * We can observe that the simulation results are same as before synthesis.
 
 
@@ -216,7 +216,7 @@ $ cd vsdstdcelldesign
 $  cp ./libs/sky130A.tech sky130A.tech
 $ magic -T sky130A.tech sky130_inv.mag &
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/inverter.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/custom%20inverter%20cell.png)
 
 
 To extract Spice netlist, Type the following commands in tcl window.
@@ -227,21 +227,21 @@ To extract Spice netlist, Type the following commands in tcl window.
 % ext2spice
 ```
 "cthresh 0 rthresh 0" is used to extract parasitic capacitances from the cell.
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/cthresh_rthresh.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/cthresh_rthresh.png)
 
 
 Open the terminal in the directory where ngspice is stored and type the following command to open the ngspice console:
 ```
 $ ngspice sky130_inv.spice 
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/ngspice.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/custom%20inverter%20cell%20(copy).png)
 
 
 Now plot the graphs for the designed inverter model using the following command:
 ```
 plot y vs time a
 ```
-![Image](https://github.com/Asmita-Zjigyasu/iiitb_riscv32im5/blob/main/Images/ngspice_waveform.jpeg)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/inverter%20cell.png)
 
 
 ## Rise time and Fall time
