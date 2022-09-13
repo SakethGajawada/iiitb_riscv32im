@@ -371,7 +371,7 @@ $ ./flow.tcl -interactive
 This command will take you into the tcl console. In the tcl console type the following commands:
 ```
 % package require openlane 0.9
-% prep -design iiitb_riscv32im5
+% prep -design iiitb_riscv32im
 ```
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane-1.png)
 
@@ -438,7 +438,7 @@ The sky130_vsdinv should also reflect in your netlist after placement
 ### NOTE
 We can also run the whole flow at once instead of step by step process by giving the following command in openlane container<br>
 ```
-$ ./flow.tcl -design iiitb_freqdiv
+$ ./flow.tcl -design iiitb_riscv32im
 ```
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/flow1.png)
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/flow2.png)
@@ -448,7 +448,7 @@ All the steps will be automated and all the files will be generated.<br>
 we can open the mag file and view the layout after the whole process by the following command, you can follow the path as per the image.<br>
 
 ```
-$ magic -T /home/nandu/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech iiitb_freqdiv.mag &
+$ magic -T /home/Desktop/ASIC/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech iiitb_riscv32im.mag &
 ```
 <br>
 
