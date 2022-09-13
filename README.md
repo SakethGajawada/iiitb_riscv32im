@@ -293,6 +293,20 @@ Cell rise delay = (2.150 - 2.076) = 74ps
 Cell fall delay = (4.0 - 3.983) = 17ps
 ```
 
+To save the file with a different name, use the folllowing command in tcl window
+```
+% save sky130_vsdinv.mag
+```
+
+Now open the sky130_vsdinv.mag using the magic command in terminal
+```
+$ magic -T sky130A.tech sky130_vsdinv.mag
+```
+In the tcl command type the following command to generate sky130_vsdinv.lef
+```
+$ lef write
+```
+A sky130_vsdinv.lef file will be created.
 
 # Layout using OpenLane
 The layout is generated using OpenLane. To run a custom design on OpenLane, navigate to the openlane folder and run the following commands:
