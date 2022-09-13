@@ -422,7 +422,8 @@ Core Area:
 % run_placement
 ```
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/openlane2.png)
-
+The sky130_vsdinv should also reflect in your netlist after placement
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/vsdinv_placement.png)
 # Clock Tree Synthesis
 ```
 % run_cts
