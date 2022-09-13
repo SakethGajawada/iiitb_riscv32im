@@ -435,6 +435,7 @@ The sky130_vsdinv should also reflect in your netlist after placement
 ```
 % run_routing
 ```
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/routing%20vsdinv.png)
 ### NOTE
 We can also run the whole flow at once instead of step by step process by giving the following command in openlane container<br>
 ```
