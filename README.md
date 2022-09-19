@@ -394,7 +394,7 @@ add_lefs -src $lefs
 
 Details of all the gates used:
 
-![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/synthesis_stats.png)
+![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/image.png)
 
 Clock skew and Worst Slack:
 
