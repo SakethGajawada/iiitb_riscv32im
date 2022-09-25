@@ -436,6 +436,15 @@ The sky130_vsdinv should also reflect in your netlist after placement
 % run_routing
 ```
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/routing%20vsdinv.png)
+
+
+we can open the def file and view the layout after the routing process by the following command, you can follow the path as per the image.<br>
+
+```
+$ magic -T /home/Desktop/ASIC/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech read ../../tmp/merged.nom.lef def read top.def &
+```
+<br>
+
 ### NOTE
 We can also run the whole flow at once instead of step by step process by giving the following command in openlane container<br>
 ```
@@ -444,6 +453,9 @@ $ ./flow.tcl -design iiitb_riscv32im
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/flow1.png)
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/flow2.png)
 All the steps will be automated and all the files will be generated.<br>
+
+
+
 
 
 we can open the mag file and view the layout after the whole process by the following command, you can follow the path as per the image.<br>
