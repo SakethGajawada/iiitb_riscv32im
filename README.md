@@ -468,6 +468,66 @@ $ magic -T /home/Desktop/ASIC/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/terminal_layout.png)
 ![Image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/layout1.png)
 
+
+# Results post-layout
+
+### 1. Post Layout synthesis gate count
+
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/stats1.png) <br>
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/stats2.png) <br>
+<b><I> Gate Count = 28963 </b></I> <br>
+
+### 2. Area (box command)
+
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/area_boxcommand.png) <br>
+
+<b><I> Area = 1857304 um2</b></I> <br>
+
+
+### 3. Performance
+
+```
+$ sta <br>
+
+OpenSTA> read_liberty -max /home/nandu/OpenLane/designs/iiitb_freqdiv/src/sky130_fd_sc_hd__fast.lib <br>
+
+OpenSTA> read_liberty -min /home/nandu/OpenLane/designs/iiitb_freqdiv/src/sky130_fd_sc_hd__slow.lib <br>
+
+OpenSTA> read_verilog /home/nandu/OpenLane/designs/iiitb_freqdiv/runs/RUN_2022.09.27_14.17.25/results/routing/iiitb_freqdiv.resized.v <br>
+
+OpenSTA> link_design iiitb_freqdiv <br>
+
+OpenSTA> read_sdc /home/nandu/OpenLane/designs/iiitb_freqdiv/runs/RUN_2022.09.27_14.17.25/results/cts/iiitb_freqdiv.sdc <br>
+
+OpenSTA> read_spef /home/nandu/OpenLane/designs/iiitb_freqdiv/runs/RUN_2022.09.27_14.17.25/results/routing/iiitb_freqdiv.nom.spef <br>
+
+OpenSTA> set_propagated_clock [all_clocks] <br>
+
+OpenSTA> report_checks <br>
+```
+
+![image](https://user-images.githubusercontent.com/62461290/192555217-b263a4e2-cad6-44e3-8682-bb0b70840aa5.png)<br>
+
+![image](https://user-images.githubusercontent.com/62461290/192554957-5c3adff3-850e-4f62-b842-7279bf1ebd6d.png)<br>
+
+<b><I> Performance = 1/(clock period - slack) = 1/(10 - 1.70)ns = 120.482Mhz </b></I><br>
+
+### 4. Flop/standard cell ratio
+
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/dffratio.png) <br>
+
+
+<b><I>Flop Ratio = Ratio of total number of flip flops / Total number of cells present in the design = 2958/28963 = 0.10213 </b></I><br>
+
+### 5. Power (internal, switching, leakage and total)
+
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/powerreport.png) <br>
+
+<b><I> Internal Power = 20.1 mW (74%) </b></I><br>
+<b><I> Switching Power = 7.06 mW (26%) </b></I><br>
+<b><I> Leakage Power = 0.138 uW (0.00%) </b></I><br>
+<b><I> Total Power = 27.2 mW (100%) </b></I><br>
+
 # Contibutors
 * Mayank Kabra, Student, IIIT Bangalore
 * Asmita Zjigyasu, Student, IIIT Bangalore
