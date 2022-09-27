@@ -506,11 +506,11 @@ set_propagated_clock [all_clocks]
 report_checks
 ```
 
-![image](https://user-images.githubusercontent.com/62461290/192555217-b263a4e2-cad6-44e3-8682-bb0b70840aa5.png)<br>
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/sta1.png)<br>
 
-![image](https://user-images.githubusercontent.com/62461290/192554957-5c3adff3-850e-4f62-b842-7279bf1ebd6d.png)<br>
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/performance.png)<br>
 
-<b><I> Performance = 1/(clock period - slack) = 1/(10 - 1.70)ns = 120.482Mhz </b></I><br>
+<b><I> Performance = 1/(clock period - slack) = 1/(10 - 0.42)ns = 104.384Mhz </b></I><br>
 
 ### 4. Flop/standard cell ratio
 
