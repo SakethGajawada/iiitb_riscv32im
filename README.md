@@ -487,23 +487,23 @@ $ magic -T /home/Desktop/ASIC/OpenLane/pdks/sky130A/libs.tech/magic/sky130A.tech
 ### 3. Performance
 
 ```
-$ sta <br>
+sta 
 
-OpenSTA> read_liberty -max /home/nandu/OpenLane/designs/iiitb_freqdiv/src/sky130_fd_sc_hd__fast.lib <br>
+read_liberty -max /home/sakethg/Desktop/ASIC/OpenLane/designs/iiitb_riscv32im/src/sky130_fd_sc_hd__fast.lib
 
-OpenSTA> read_liberty -min /home/nandu/OpenLane/designs/iiitb_freqdiv/src/sky130_fd_sc_hd__slow.lib <br>
+read_liberty -max /home/sakethg/Desktop/ASIC/OpenLane/designs/iiitb_riscv32im/src/sky130_fd_sc_hd__slow.lib
 
-OpenSTA> read_verilog /home/nandu/OpenLane/designs/iiitb_freqdiv/runs/RUN_2022.09.27_14.17.25/results/routing/iiitb_freqdiv.resized.v <br>
+read_verilog /home/sakethg/Desktop/ASIC/OpenLane/designs/iiitb_riscv32im/runs/RUN_2022.09.12_18.04.53/results/routing/top.resized.v
 
-OpenSTA> link_design iiitb_freqdiv <br>
+link_design top
 
-OpenSTA> read_sdc /home/nandu/OpenLane/designs/iiitb_freqdiv/runs/RUN_2022.09.27_14.17.25/results/cts/iiitb_freqdiv.sdc <br>
+read_sdc /home/sakethg/Desktop/ASIC/OpenLane/designs/iiitb_riscv32im/runs/RUN_2022.09.12_18.04.53/results/cts/top.sdc
 
-OpenSTA> read_spef /home/nandu/OpenLane/designs/iiitb_freqdiv/runs/RUN_2022.09.27_14.17.25/results/routing/iiitb_freqdiv.nom.spef <br>
+read_spef /home/sakethg/Desktop/ASIC/OpenLane/designs/iiitb_riscv32im/runs/RUN_2022.09.12_18.04.53/results/routing/top.nom.spef
 
-OpenSTA> set_propagated_clock [all_clocks] <br>
+set_propagated_clock [all_clocks]
 
-OpenSTA> report_checks <br>
+report_checks
 ```
 
 ![image](https://user-images.githubusercontent.com/62461290/192555217-b263a4e2-cad6-44e3-8682-bb0b70840aa5.png)<br>
