@@ -508,9 +508,9 @@ report_checks
 
 ![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/sta1.png)<br>
 
-![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/performance.png)<br>
+![image](https://github.com/SakethGajawada/iiitb_riscv32im/blob/master/Images/WhatsApp%20Image%202022-09-28%20at%202.02.32%20PM.jpeg)<br>
 
-<b><I> Performance = 1/(clock period - slack) = 1/(10 - 0.42)ns = 104.384Mhz </b></I><br>
+<b><I> Performance = 1/(clock period - slack) = 1/(30 - 21.68)ns = 120.192Mhz </b></I><br>
 
 ### 4. Flop/standard cell ratio
 
